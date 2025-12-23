@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Globora | Export Decision Support Platform</title>
+    <meta name="description" content="Know what to sell, where to sell, and at what price. Data-driven export decision support for Indian exporters. MSME Idea Hackathon 4.0 grant recipient by Ministry of MSME.">
+    <link rel="icon" type="image/png" href="Globora.png">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Globora | Export Decision Support Platform">
+    <meta property="og:description" content="Know what to sell, where to sell, and at what price. Data-driven, not guesswork.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://globora.ai">
+    <meta property="og:site_name" content="Globora">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Globora | Export Decision Support Platform">
+    <meta name="twitter:description" content="Know what to sell, where to sell, and at what price. Data-driven, not guesswork.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;600;700;800&family=Sora:wght@700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@0.294.0"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #020617;
+            color: #f8fafc;
+            overflow-x: hidden;
+        }
+        h1, h2, h3, .font-heading {
+            font-family: 'Outfit', sans-serif;
+        }
+        
+        .brand-name {
+            font-family: 'Sora', sans-serif;
+            font-weight: 800;
+            letter-spacing: 0.02em;
+        }
+        
+        .bg-grid {
+            background-size: 60px 60px;
+            background-image: 
+                linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+            mask-image: radial-gradient(circle at center, black 40%, transparent 100%);
+            -webkit-mask-image: radial-gradient(circle at center, black 40%, transparent 100%);
+        }
+
+        .premium-card {
+            background: rgba(15, 23, 42, 0.7);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.02), 0 20px 40px -10px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        @supports (backdrop-filter: blur(16px)) {
+            .premium-card {
+                background: rgba(15, 23, 42, 0.4);
+            }
+        }
+
+        .premium-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1), 0 25px 50px -12px rgba(0, 0, 0, 0.4);
+        }
+
+        .card-blue:hover .icon-glow { box-shadow: 0 0 25px rgba(59, 130, 246, 0.3); }
+        .card-amber:hover .icon-glow { box-shadow: 0 0 25px rgba(245, 158, 11, 0.3); }
+        .card-emerald:hover .icon-glow { box-shadow: 0 0 25px rgba(16, 185, 129, 0.3); }
+
+        /* Subtle gradient - no animation */
+        .gradient-text {
+            background: linear-gradient(135deg, #fbbf24 20%, #60a5fa 80%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+        .delay-400 { animation-delay: 0.4s; }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Static orbs - no animation */
+        .orb-static {
+            opacity: 0.3;
+        }
+
+        @media (max-width: 640px) {
+            .orb-static {
+                width: 300px !important;
+                height: 300px !important;
+            }
+        }
+
+        .credential-badge {
+            background: linear-gradient(135deg, rgba(251, 191, 36, 0.1) 0%, rgba(59, 130, 246, 0.1) 100%);
+            border: 1.5px solid rgba(251, 191, 36, 0.25);
+            box-shadow: 0 0 0 1px rgba(251, 191, 36, 0.1), 0 4px 12px -2px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col relative selection:bg-amber-500/30">
+
+    <!-- Background -->
+    <div class="fixed inset-0 bg-[#020617] -z-20"></div>
+    <div class="absolute inset-0 bg-grid z-0 pointer-events-none"></div>
+    
+    <!-- Static Orbs (no animation) -->
+    <div class="absolute top-[-10%] right-[-5%] w-[600px] h-[600px] bg-blue-600/15 blur-[120px] rounded-full pointer-events-none mix-blend-screen orb-static"></div>
+    <div class="absolute bottom-[-10%] left-[-5%] w-[600px] h-[600px] bg-amber-600/10 blur-[120px] rounded-full pointer-events-none mix-blend-screen orb-static"></div>
+
+    <!-- Main Content -->
+    <main class="flex-grow flex flex-col items-center justify-center relative z-10 px-4 py-16 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
+        
+        <!-- Brand Header -->
+        <header class="mb-6 text-center fade-in-up">
+            <h1 class="brand-name text-4xl md:text-5xl lg:text-6xl tracking-tight text-white mb-2">Globora</h1>
+            <p class="text-sm md:text-base text-slate-500 font-light tracking-wide">Export Decision Support Platform</p>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="max-w-3xl mx-auto text-center mb-16 space-y-5 fade-in-up delay-100">
+            <!-- Credential Badge -->
+            <div class="credential-badge inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full text-xs font-medium tracking-wide text-amber-200/90">
+                <i data-lucide="badge-check" class="w-4 h-4 text-amber-400"></i>
+                <span>MSME Idea Hackathon 4.0 grant recipient (Ministry of MSME), selected from 29,000+ submissions.</span>
+            </div>
+            <!-- Main Headline -->
+            <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight tracking-tight pt-2">
+                Export decisions <span class="gradient-text">made simple</span>
+            </h2>
+
+            <!-- Value Proposition -->
+            <p class="text-base md:text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
+                Know what to sell, where to sell, and at what price. Intelligence driven decisions, not guesswork.
+            </p>
+
+            <!-- Target Audience -->
+            <p class="text-sm text-slate-500">Built for Indian Exporters</p>
+        </section>
+
+        <!-- Feature Cards -->
+        <section class="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-6 max-w-5xl w-full mx-auto mb-20 fade-in-up delay-200">
+            
+            <!-- Card 1 -->
+            <div class="premium-card card-blue rounded-2xl p-6 flex flex-col items-center text-center group">
+                <div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-blue-500/50 to-transparent"></div>
+                
+                <div class="icon-glow w-14 h-14 bg-gradient-to-br from-blue-500/10 to-blue-600/5 rounded-xl flex items-center justify-center mb-4 transition-all duration-300 border border-blue-500/20 group-hover:border-blue-400/40">
+                    <i data-lucide="boxes" class="w-6 h-6 text-blue-400"></i>
+                </div>
+                
+                <h3 class="text-lg font-bold text-white mb-2">What to Export</h3>
+                <p class="text-sm text-slate-400 leading-relaxed">Identify products with proven global demand.</p>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="premium-card card-amber rounded-2xl p-6 flex flex-col items-center text-center group">
+                <div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-amber-500/50 to-transparent"></div>
+                
+                <div class="icon-glow w-14 h-14 bg-gradient-to-br from-amber-500/10 to-amber-600/5 rounded-xl flex items-center justify-center mb-4 transition-all duration-300 border border-amber-500/20 group-hover:border-amber-400/40">
+                    <i data-lucide="map-pinned" class="w-6 h-6 text-amber-400"></i>
+                </div>
+                
+                <h3 class="text-lg font-bold text-white mb-2">Where to Sell</h3>
+                <p class="text-sm text-slate-400 leading-relaxed">Find the right countries for your products.</p>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="premium-card card-emerald rounded-2xl p-6 flex flex-col items-center text-center group">
+                <div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-emerald-500/50 to-transparent"></div>
+                
+                <div class="icon-glow w-14 h-14 bg-gradient-to-br from-emerald-500/10 to-emerald-600/5 rounded-xl flex items-center justify-center mb-4 transition-all duration-300 border border-emerald-500/20 group-hover:border-emerald-400/40">
+                    <i data-lucide="calculator" class="w-6 h-6 text-emerald-400"></i>
+                </div>
+                
+                <h3 class="text-lg font-bold text-white mb-2">How to Price</h3>
+                <p class="text-sm text-slate-400 leading-relaxed">Price with confidence using market benchmarks.</p>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="w-full max-w-md mx-auto text-center fade-in-up delay-300 space-y-3">
+            <div class="inline-flex items-center justify-center px-6 py-3 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm">
+                <span class="relative flex h-2 w-2 mr-3">
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
+                  <span class="relative inline-flex rounded-full h-2 w-2 bg-amber-500"></span>
+                </span>
+                <span class="text-slate-300 font-medium tracking-wide text-sm">Coming Soon</span>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="relative z-10 py-6 text-center border-t border-white/5 bg-[#020617]/50 backdrop-blur-sm fade-in-up delay-400">
+        <p class="text-slate-500 text-xs">
+            &copy; <span id="year"></span> Globora. All rights reserved.
+        </p>
+        <p class="text-slate-600 text-[10px] mt-1">MSME Idea Hackathon 4.0 | Export Enhancement track</p>
+        <p class="text-slate-500 text-xs mt-2">
+            Contact: <a class="underline underline-offset-4 hover:text-slate-300" href="mailto:harsh@globora.ai">hello@globora.ai</a>
+        </p>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
